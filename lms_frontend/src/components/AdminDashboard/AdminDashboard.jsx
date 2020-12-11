@@ -9,14 +9,12 @@ import {
 import AddEmployee from "../AddEmployee/AddEmployee";
 import AddRole from "../AddRole/AddRole";
 import DeleteEmployee from "../DeleteEmployee/DeleteEmployee";
-import SideNavBar from "../SideNavBar/SideNavBar";
 import UpdateRole from "../UpdateRole/UpdateRole";
 import "../AdminDashboard/admindb.css";
 import icon from "../AdminDashboard/admin.svg";
 import AdminContents from "./AdminContents/AdminContents";
 import EmployeeFull from "../EmployeeFull/EmployeeFull";
 import EditEmployee from "../EmployeeFull/EditEmployee/EditEmployee";
-import EmployeesFull from "../EmployeeFull/EmployeesFull";
 
 const AdminDashboard = (props) => {
   const [user, setUser] = useState(localStorage.getItem("user"));
@@ -27,7 +25,7 @@ const AdminDashboard = (props) => {
     console.log(user);
     if (user == null) {
       props.history.push("/pleaselogin");
-    } else if (JSON.parse(user).roleId != 1) {
+    } else if (JSON.parse(user).roleId !== 1) {
       props.history.push("/pleaselogin");
     } else {
       let un = JSON.parse(localStorage.getItem("user")).userName;
@@ -37,19 +35,12 @@ const AdminDashboard = (props) => {
 
   return (
     <div className="admindb">
-      {/* <Router> */}
-      {/* <Switch> */}
-      {/* <SideNavBar navs={navs} /> */}
       <div className="offset-md-9 wlcmtxt mt-5">
-        {/* Welcome {JSON.parse(localStorage.getItem("user")).userName} */}
         Welcome {username}
-        <img src={icon} className="icon"></img>
+        <img src={icon} className="icon" alt=""></img>
       </div>
       <Route path="/admin/addemp" render={() => <AddEmployee />}></Route>
-      <Route
-        path="/admin/addrole"
-        render={(props) => <AddRole {...props} />}
-      ></Route>
+      <Route path="/admin/addrole" component={AddRole}></Route>
       <Route path="/admin/updateRole" component={UpdateRole}></Route>
       <Route path="/admin/updateEmp" component={DeleteEmployee}></Route>
       <Route exact path="/admin" component={AdminContents}></Route>
@@ -58,8 +49,6 @@ const AdminDashboard = (props) => {
         path="/admin/employees/editEmployee"
         component={EditEmployee}
       ></Route>
-      {/* </Switch> */}
-      {/* </Router> */}
     </div>
   );
 };

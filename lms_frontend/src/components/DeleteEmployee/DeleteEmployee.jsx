@@ -1,22 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { Form, Button, Table, Alert, Spinner } from "react-bootstrap";
-import axios from "axios";
+import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
 import "../DeleteEmployee/deleteemployee.css";
 
 const DeleteEmployee = (props) => {
   const [text, setText] = useState("");
 
-
-  const getemp = (e)=>{
+  const getemp = (e) => {
     e.preventDefault();
     console.log(text);
     props.history.push({
-      pathname : '/admin/employees',
-      id:text
-  })
-  }
-
- 
+      pathname: "/admin/employees",
+      id: text,
+    });
+  };
 
   return (
     <div>

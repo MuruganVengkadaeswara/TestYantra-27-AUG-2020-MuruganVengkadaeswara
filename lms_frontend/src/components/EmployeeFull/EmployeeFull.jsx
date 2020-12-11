@@ -1,6 +1,6 @@
 import Axios from "axios";
-import React, { useEffect, useLayoutEffect, useState } from "react";
-import { Alert, Button, Spinner, Tab, Table } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Alert, Button, Spinner, Table } from "react-bootstrap";
 import "../EmployeeFull/empfull.css";
 
 const EmployeeFull = (props) => {

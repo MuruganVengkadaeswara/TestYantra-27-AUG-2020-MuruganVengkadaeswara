@@ -79,9 +79,6 @@ const ApplicationFull = (props) => {
     setClientAlert(<Spinner variant="success" animation="border" />);
     setLoanAlert(<Spinner variant="success" animation="border" />);
     setAppAlert(<Spinner variant="success" animation="border" />);
-
-    // console.log(user);
-    // console.log(client);
   };
 
   const addloan = (cid) => {
@@ -267,7 +264,7 @@ const ApplicationFull = (props) => {
         <tbody>
           {Object.keys(appln).map((key, index) => {
             if (typeof appln[key] != "object") {
-              if (key == "dob") {
+              if (key === "dob") {
                 console.log(key);
                 let date = new Date(appln[key]);
                 return (
@@ -285,16 +282,6 @@ const ApplicationFull = (props) => {
                 );
               }
             } else {
-              {
-                /* let newobj = appln[key];
-          Object.keys(newobj).map((key1, index1) => {
-              return (
-                <h1>
-                  {key1} : {newobj[key1]}
-                </h1>
-              );
-          }); */
-              }
               return "";
             }
           })}

@@ -1,17 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Button, Jumbotron, Container } from "react-bootstrap";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  NavLink,
-  Redirect,
-  withRouter,
-} from "react-router-dom";
-import AddEmployee from "../AddEmployee/AddEmployee";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import AdminDashboard from "../AdminDashboard/AdminDashboard";
-import CarouselComp from "../Carousel/CarouselComp";
 import LoanApplication from "../LoanApplication/LoanApplication";
 import Login from "../Login/Login";
 import NavBar from "../NavBar/NavBar";
@@ -21,28 +10,20 @@ import "../Home/home.css";
 import EmployeeDashboard from "../EmployeeDashboard/EmployeeDashboard";
 import NotLoggedIn from "../NotLoggedIn/NotLoggedIn";
 import ClientDashBoard from "../ClientDashBoard/ClientDashBoard";
-import AdminContents from "../AdminDashboard/AdminContents/AdminContents";
 import CheckStatus from "../CheckStatus/CheckStatus";
 import ForgotPassword from "../ForgotPassword/ForgotPassword";
 import ChangePassword from "../ForgotPassword/ChangePassword";
 
 const Home = (props) => {
-  const [appl, setAppl] = useState(1);
   const [navcontent, setnavcontent] = useState([]);
   const [dash, setdash] = useState(<HomeContents />);
 
-  let loggedin;
   let roleId;
   if (localStorage.getItem("user") != null) {
-    loggedin = true;
     roleId = JSON.parse(localStorage.getItem("user")).roleId;
-  } else {
-    loggedin = false;
   }
 
   useEffect(() => {
-    // console.log(JSON.parse(localStorage.getItem("user")).roleId);
-
     switch (roleId) {
       case null:
         setnavcontent([]);
@@ -117,8 +98,10 @@ const Home = (props) => {
             name: "Apply for loan",
           },
         ]);
-        setdash(<Redirect to="/client"/>);
+        setdash(<Redirect to="/client" />);
         break;
+      default:
+        setnavcontent([]);
     }
   }, []);
 
@@ -126,10 +109,7 @@ const Home = (props) => {
     <div>
       <Router>
         <NavBar navs={navcontent} />
-        {/* {ele} */}
-        {/* <Switch> */}
         <Route exact path="/">
-          {/* {loggedin ? <Redirect to="/admin" /> : <HomeContents />} */}
           {dash}
         </Route>
         <Route path="/login" component={Login}></Route>
@@ -142,8 +122,6 @@ const Home = (props) => {
         <Route path="/applicationstatus" component={CheckStatus}></Route>
         <Route path="/forgotpassword" component={ForgotPassword}></Route>
         <Route path="/forgotpassword/change" component={ChangePassword}></Route>
-
-        {/* </Switch> */}
       </Router>
     </div>
   );

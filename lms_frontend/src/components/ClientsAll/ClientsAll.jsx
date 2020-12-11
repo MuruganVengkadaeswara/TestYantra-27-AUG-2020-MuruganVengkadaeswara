@@ -8,7 +8,9 @@ const ClientsAll = (props) => {
   useEffect(() => {
     Axios.get(`http://localhost:8080/lms/employee/clients`).then((res) => {
       console.log(res.data.response);
-      setClients(res.data.response);
+      if (!res.data.error) {
+        setClients(res.data.response);
+      }
       console.log(clients);
     });
   }, []);

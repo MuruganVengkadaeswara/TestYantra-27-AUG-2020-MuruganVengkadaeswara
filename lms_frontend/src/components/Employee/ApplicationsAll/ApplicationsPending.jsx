@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Table, Button } from "react-bootstrap";
-import ApplicationFull from "../ApplicationFull/ApplicationFull";
 
 const ApplicationsPending = (props) => {
   const [applns, setApplns] = useState([]);

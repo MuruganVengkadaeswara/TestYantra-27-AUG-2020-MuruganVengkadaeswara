@@ -1,14 +1,11 @@
-import React, { useContext, useState, useEffect } from "react";
-import { Nav, Form, FormControl, Button, Navbar } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Nav, Button, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import AppContext from "../Context/AppContext";
 import brand from "./icons/bank.svg";
 import menuicon from "./icons/menu.svg";
 import "./nav.css";
 
 const NavBar = (props) => {
-  const [log, setLog] = useState(1);
-  const [user, setUser] = useState(localStorage.getItem("user"));
   const [sidenavstate, setsidenavstate] = useState({
     menuStatus: "open",
     style: "menu",
@@ -24,7 +21,7 @@ const NavBar = (props) => {
 
   useEffect(() => {
     console.log("useeffect");
-    if (window.location.href == "http://localhost:3000/Login") {
+    if (window.location.href === "http://localhost:3000/Login") {
       setBtn();
     } else if (localStorage.getItem("user") != null) {
       setBtn(
@@ -57,6 +54,7 @@ const NavBar = (props) => {
           style: "menu",
         });
         break;
+      default:
     }
   };
 
@@ -65,11 +63,15 @@ const NavBar = (props) => {
       <Navbar variant="dark" className="nbar">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-        <img src={menuicon} className="brandlogo"
-        onClick={handleclick}></img>
+          <img
+            src={menuicon}
+            className="brandlogo"
+            alt=""
+            onClick={handleclick}
+          ></img>
           <NavLink to="/">
             <Navbar.Brand>
-              <img src={brand} className="brandlogo"/>
+              <img src={brand} alt="" className="brandlogo" />
             </Navbar.Brand>
             <strong className="maint">MVBI</strong>
           </NavLink>
@@ -77,11 +79,8 @@ const NavBar = (props) => {
           <div className="subt d-none d-sm-block">(MV Bank Of India)</div>
           <Nav className="mr-auto"></Nav>
           {btn}
-          {/* {ele} */}
-          {/* <Button onClick = {() => con.setTheme('dark')}>theme</Button> */}
         </Navbar.Collapse>
       </Navbar>
-      {/* <h1>{con.theme}</h1> */}
       <div className={sidenavstate.style}>
         <ul>
           {props.navs.map(({ url, name }) => (

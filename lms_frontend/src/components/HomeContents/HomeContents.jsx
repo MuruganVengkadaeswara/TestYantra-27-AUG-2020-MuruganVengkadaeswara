@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../HomeContents/homecontents.css";
-import { Jumbotron, Container, NavLink, Button, Nav } from "react-bootstrap";
+import { Jumbotron, Container, NavLink, Button } from "react-bootstrap";
 import CarouselComp from "../Carousel/CarouselComp";
 import { Bar } from "react-chartjs-2";
 import Axios from "axios";
@@ -57,14 +57,10 @@ const HomeContents = (props) => {
     Axios.get("http://localhost:8080/lms/user/loantypes").then((res) => {
       console.log(res);
       console.log(res.data.response);
-      let interests = res.data.response.map((obj)=> obj.interestRate)
-      let labels1 = res.data.response.map((obj)=>obj.loanName)
+      let interests = res.data.response.map((obj) => obj.interestRate);
+      let labels1 = res.data.response.map((obj) => obj.loanName);
       console.log(labels1);
       console.log(interests);
-      // setData((prevState) =>{
-
-      //   return ({...prevState,chartdata1['labels'] : labels1})
-      // })
       setData(res.data.response);
       console.log(data);
     });

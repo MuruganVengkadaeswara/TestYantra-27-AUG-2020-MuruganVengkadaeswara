@@ -9,7 +9,6 @@ import {
   Route,
   withRouter,
 } from "react-router-dom";
-import Register from "../Register/Register";
 import axios from "axios";
 function Login(props) {
   const [creds, setCreds] = useState({
@@ -29,15 +28,12 @@ function Login(props) {
         localStorage.setItem("user", JSON.stringify(res.data.response));
         switch (res.data.response.roleId) {
           case 1:
-            // props.history.push("/admin");
             window.location.href = "http://localhost:3000/admin";
             break;
           case 2:
-            // props.history.push("/employee");
             window.location.href = "http://localhost:3000/employee";
             break;
           case 3:
-            // props.history.push("/client");
             window.location.href = "http://localhost:3000/client";
             break;
           default:
@@ -55,7 +51,7 @@ function Login(props) {
 
   return (
     <div className="card card-body col-md-4 offset-md-4  loginbody">
-      <h2 className='offset-4'>
+      <h2 className="offset-4">
         <strong>Welcome</strong>
       </h2>
       <hr></hr>

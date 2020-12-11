@@ -7,7 +7,6 @@ import Axios from "axios";
 
 const UpdateLoanType = (props) => {
   const [loantypes, setloantypes] = useState([]);
-  const [btn, setbtn] = useState();
   const [alert, setAlert] = useState();
 
   useEffect(() => {
@@ -62,7 +61,8 @@ const UpdateLoanType = (props) => {
           if (res.data.error) {
             setAlert(
               <Alert variant="danger">
-                Unable to update Loan Type , Please try after sometime ... refreshing....&nbsp;
+                Unable to update Loan Type , Please try after sometime ...
+                refreshing....&nbsp;
                 <Spinner variant="success" animation="grow" />
               </Alert>
             );
@@ -88,30 +88,32 @@ const UpdateLoanType = (props) => {
 
   const deleteType = (id) => {
     setAlert(<Spinner variant="danfer" animation="border" />);
-    Axios.delete(`http://localhost:8080/lms/employee/loantypes/${id}`).then((res) => {
-      console.log(res.data);
-      if (res.data.error) {
-        setAlert(
-          <Alert variant="danger">
-            unable to delete loan type &emsp;
-            <Spinner variant="success" animation="grow" />
-          </Alert>
-        );
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
-      } else {
-        setAlert(
-          <Alert variant="success">
-            Loan type deleted successfully &emsp;
-            <Spinner variant="info" animation="grow" />
-          </Alert>
-        );
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
+    Axios.delete(`http://localhost:8080/lms/employee/loantypes/${id}`).then(
+      (res) => {
+        console.log(res.data);
+        if (res.data.error) {
+          setAlert(
+            <Alert variant="danger">
+              unable to delete loan type &emsp;
+              <Spinner variant="success" animation="grow" />
+            </Alert>
+          );
+          setTimeout(() => {
+            window.location.reload();
+          }, 3000);
+        } else {
+          setAlert(
+            <Alert variant="success">
+              Loan type deleted successfully &emsp;
+              <Spinner variant="info" animation="grow" />
+            </Alert>
+          );
+          setTimeout(() => {
+            window.location.reload();
+          }, 3000);
+        }
       }
-    });
+    );
   };
 
   return (

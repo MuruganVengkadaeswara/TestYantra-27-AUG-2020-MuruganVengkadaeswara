@@ -51,7 +51,6 @@ const AddRole = (props) => {
               setRole((prevState) => {
                 return { ...prevState, roleId: val };
               });
-              
             }}
           ></Form.Control>
         </Form.Group>

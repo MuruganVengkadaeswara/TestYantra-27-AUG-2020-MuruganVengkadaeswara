@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Form,
   Button,
@@ -9,7 +9,6 @@ import {
   Spinner,
   Alert,
   Popover,
-  Overlay,
   OverlayTrigger,
 } from "react-bootstrap";
 import statelist from "../LoanApplication/statelist.json";
@@ -27,7 +26,7 @@ const LoanApplication = (props) => {
 
   const popover = (
     <Popover id="popover-basic">
-      <Popover.Title as="h3">{popttl}</Popover.Title>
+      <Popover.Title as="h1">{popttl}</Popover.Title>
       <Popover.Content>{popmsg}</Popover.Content>
     </Popover>
   );
@@ -107,9 +106,17 @@ const LoanApplication = (props) => {
           </Col>
           <Col>
             <Form.Label>Loan Amount</Form.Label>
-            <OverlayTrigger trigger="focus" placement="right" overlay={popover}>
+            <OverlayTrigger
+              trigger="focus"
+              placement="bottom"
+              overlay={popover}
+            >
               <Form.Control
                 required
+                onClick={() => {
+                  setpopttl("Loan Amount");
+                  setpopmsg("Enter a valid loan amount");
+                }}
                 onChange={(e) => {
                   const val = e.target.value;
                   let re = /^[0-9]+$/;
@@ -138,7 +145,7 @@ const LoanApplication = (props) => {
               <Form.Label>First Name</Form.Label>
               <OverlayTrigger
                 trigger="focus"
-                placement="left"
+                placement="bottom"
                 overlay={popover}
               >
                 <Form.Control
@@ -151,7 +158,11 @@ const LoanApplication = (props) => {
                   onChange={(e) => {
                     const val = e.target.value;
                     let re = /^[A-Z]+$/i;
-
+                    if (re.test(val)) {
+                      setpopmsg(<h3>OK &#10004;</h3>);
+                    } else {
+                      setpopmsg("Enter a valid name");
+                    }
                     setAppln((prevState) => {
                       return { ...prevState, firstName: val };
                     });
@@ -161,63 +172,79 @@ const LoanApplication = (props) => {
             </Col>
             <Col>
               <Form.Label>Middle Name</Form.Label>
-              <Form.Control
-                type="text"
-                onClick={() => {
-                  setpopttl("First Name");
-                  setpopmsg("Enter a valid Name");
-                }}
-                onChange={(e) => {
-                  const val = e.target.value;
-                  setAppln((prevState) => {
-                    return { ...prevState, middleName: val };
-                  });
-                }}
-              ></Form.Control>
+              <OverlayTrigger
+                trigger="focus"
+                placement="bottom"
+                overlay={popover}
+              >
+                <Form.Control
+                  type="text"
+                  onClick={() => {
+                    setpopttl("First Name");
+                    setpopmsg("Enter a valid Name");
+                  }}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setAppln((prevState) => {
+                      return { ...prevState, middleName: val };
+                    });
+                  }}
+                ></Form.Control>
+              </OverlayTrigger>
             </Col>
             <Col>
               <Form.Label> Last Name</Form.Label>
-              <Form.Control
-                type="text"
-                onClick={() => {
-                  setpopttl("First Name");
-                  setpopmsg("Enter a valid Name");
-                }}
-                onChange={(e) => {
-                  const val = e.target.value;
-                  setAppln((prevState) => {
-                    return { ...prevState, lastName: val };
-                  });
-                }}
-              ></Form.Control>
+              <OverlayTrigger
+                trigger="focus"
+                placement="bottom"
+                overlay={popover}
+              >
+                <Form.Control
+                  type="text"
+                  onClick={() => {
+                    setpopttl("First Name");
+                    setpopmsg("Enter a valid Name");
+                  }}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setAppln((prevState) => {
+                      return { ...prevState, lastName: val };
+                    });
+                  }}
+                ></Form.Control>
+              </OverlayTrigger>
             </Col>
           </Form.Row>
         </FormGroup>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control
-            className="col-md-5"
-            onChange={(e) => {
-              const val = e.target.value;
-              setAppln((prevState) => {
-                return { ...prevState, email: val };
-              });
-            }}
-          ></Form.Control>
+          <OverlayTrigger trigger="focus" placement="bottom" overlay={popover}>
+            <Form.Control
+              className="col-md-5"
+              onChange={(e) => {
+                const val = e.target.value;
+                setAppln((prevState) => {
+                  return { ...prevState, email: val };
+                });
+              }}
+            ></Form.Control>
+          </OverlayTrigger>
         </Form.Group>
 
         <FormGroup>
           <Form.Label>mobile number</Form.Label>
-          <Form.Control
-            className="col-md-5"
-            onChange={(e) => {
-              const val = e.target.value;
-              setAppln((prevState) => {
-                return { ...prevState, mobileNo: val };
-              });
-            }}
-          ></Form.Control>
+          <OverlayTrigger trigger="focus" placement="bottom" overlay={popover}>
+            <Form.Control
+              className="col-md-5"
+              onChange={(e) => {
+                const val = e.target.value;
+                setAppln((prevState) => {
+                  return { ...prevState, mobileNo: val };
+                });
+              }}
+            ></Form.Control>
+          </OverlayTrigger>
         </FormGroup>
 
         <FormGroup>
@@ -337,29 +364,33 @@ const LoanApplication = (props) => {
 
         <FormGroup>
           <Form.Label>City</Form.Label>
-          <Form.Control
-            className="col-md-5"
-            onChange={(e) => {
-              const val = e.target.value;
-              setAppln((prevState) => {
-                return { ...prevState, city: val };
-              });
-            }}
-          ></Form.Control>
+          <OverlayTrigger trigger="focus" placement="bottom" overlay={popover}>
+            <Form.Control
+              className="col-md-5"
+              onChange={(e) => {
+                const val = e.target.value;
+                setAppln((prevState) => {
+                  return { ...prevState, city: val };
+                });
+              }}
+            ></Form.Control>
+          </OverlayTrigger>
         </FormGroup>
 
         <FormGroup>
           <Form.Label>pincode</Form.Label>
-          <Form.Control
-            type="tel"
-            className="col-md-5"
-            onChange={(e) => {
-              const val = e.target.value;
-              setAppln((prevState) => {
-                return { ...prevState, pincode: val };
-              });
-            }}
-          ></Form.Control>
+          <OverlayTrigger trigger="focus" placement="bottom" overlay={popover}>
+            <Form.Control
+              type="tel"
+              className="col-md-5"
+              onChange={(e) => {
+                const val = e.target.value;
+                setAppln((prevState) => {
+                  return { ...prevState, pincode: val };
+                });
+              }}
+            ></Form.Control>
+          </OverlayTrigger>
         </FormGroup>
 
         <FormGroup>
@@ -384,44 +415,50 @@ const LoanApplication = (props) => {
 
         <FormGroup>
           <Form.Label>Job description</Form.Label>
-          <Form.Control
-            type="text"
-            className="col-md-5"
-            onChange={(e) => {
-              const val = e.target.value;
-              setAppln((prevState) => {
-                return { ...prevState, applicantJob: val };
-              });
-            }}
-          ></Form.Control>
+          <OverlayTrigger trigger="focus" placement="bottom" overlay={popover}>
+            <Form.Control
+              type="text"
+              className="col-md-5"
+              onChange={(e) => {
+                const val = e.target.value;
+                setAppln((prevState) => {
+                  return { ...prevState, applicantJob: val };
+                });
+              }}
+            ></Form.Control>
+          </OverlayTrigger>
         </FormGroup>
 
         <FormGroup>
           <Form.Label>Company Name</Form.Label>
-          <Form.Control
-            type="text"
-            className="col-md-5"
-            onChange={(e) => {
-              const val = e.target.value;
-              setAppln((prevState) => {
-                return { ...prevState, compName: val };
-              });
-            }}
-          ></Form.Control>
+          <OverlayTrigger trigger="focus" placement="bottom" overlay={popover}>
+            <Form.Control
+              type="text"
+              className="col-md-5"
+              onChange={(e) => {
+                const val = e.target.value;
+                setAppln((prevState) => {
+                  return { ...prevState, compName: val };
+                });
+              }}
+            ></Form.Control>
+          </OverlayTrigger>
         </FormGroup>
 
         <FormGroup>
           <Form.Label>Salary</Form.Label>
-          <Form.Control
-            type="number"
-            className="col-md-5"
-            onChange={(e) => {
-              const val = e.target.value;
-              setAppln((prevState) => {
-                return { ...prevState, applicantSalary: val };
-              });
-            }}
-          ></Form.Control>
+          <OverlayTrigger trigger="focus" placement="bottom" overlay={popover}>
+            <Form.Control
+              type="number"
+              className="col-md-5"
+              onChange={(e) => {
+                const val = e.target.value;
+                setAppln((prevState) => {
+                  return { ...prevState, applicantSalary: val };
+                });
+              }}
+            ></Form.Control>
+          </OverlayTrigger>
         </FormGroup>
 
         <FormGroup>
@@ -446,30 +483,34 @@ const LoanApplication = (props) => {
 
         <FormGroup>
           <Form.Label>Identity Number</Form.Label>
-          <Form.Control
-            type="tel"
-            className="col-md-5"
-            onChange={(e) => {
-              const val = e.target.value;
-              setAppln((prevState) => {
-                return { ...prevState, identityNo: val };
-              });
-            }}
-          ></Form.Control>
+          <OverlayTrigger trigger="focus" placement="bottom" overlay={popover}>
+            <Form.Control
+              type="tel"
+              className="col-md-5"
+              onChange={(e) => {
+                const val = e.target.value;
+                setAppln((prevState) => {
+                  return { ...prevState, identityNo: val };
+                });
+              }}
+            ></Form.Control>
+          </OverlayTrigger>
         </FormGroup>
 
         <FormGroup>
           <Form.Label>Pan Number</Form.Label>
-          <Form.Control
-            type="text"
-            className="col-md-5"
-            onChange={(e) => {
-              const val = e.target.value;
-              setAppln((prevState) => {
-                return { ...prevState, panNo: val };
-              });
-            }}
-          ></Form.Control>
+          <OverlayTrigger trigger="focus" placement="bottom" overlay={popover}>
+            <Form.Control
+              type="text"
+              className="col-md-5"
+              onChange={(e) => {
+                const val = e.target.value;
+                setAppln((prevState) => {
+                  return { ...prevState, panNo: val };
+                });
+              }}
+            ></Form.Control>
+          </OverlayTrigger>
         </FormGroup>
         <Button
           type="submit"

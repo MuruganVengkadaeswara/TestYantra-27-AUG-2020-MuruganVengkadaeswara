@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Spinner, Alert, NavLink } from "react-bootstrap";
+import { Form, Button, Spinner, Alert, NavLink, Popover } from "react-bootstrap";
 import axios from "axios";
 import "./register.css";
 
@@ -9,6 +9,15 @@ const Register = (props) => {
   });
 
   const [alert, setAlert] = useState();
+  const [popttl, setpopttl] = useState("sample");
+  const [popmsg, setpopmsg] = useState("sample");
+
+  const popover = (
+    <Popover id="popover-basic">
+      <Popover.Title as="h1">{popttl}</Popover.Title>
+      <Popover.Content>{popmsg}</Popover.Content>
+    </Popover>
+  );
 
   const validateUser = (u) => {
     const reEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

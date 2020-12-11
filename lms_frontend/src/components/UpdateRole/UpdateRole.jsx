@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Form, Button, Table, Spinner, Alert } from "react-bootstrap";
 import axios from "axios";
 import "../UpdateRole/updaterole.css";
-import { Redirect } from "react-router";
 import ReactDOMServer from "react-dom/server";
 
 const UpdateRole = (props) => {

@@ -5,7 +5,6 @@ import {
   Link,
   withRouter,
 } from "react-router-dom";
-import SideNavBar from "../SideNavBar/SideNavBar";
 import "../ClientDashBoard/clientdb.css";
 import icon from "../ClientDashBoard/clients.svg";
 import LoanApplication from "../LoanApplication/LoanApplication";
@@ -24,7 +23,7 @@ const ClientDashBoard = (props) => {
     console.log(user);
     if (user == null) {
       props.history.push("/pleaselogin");
-    } else if (JSON.parse(user).roleId != 3) {
+    } else if (JSON.parse(user).roleId !== 3) {
       props.history.push("/pleaselogin");
     } else {
       let un = JSON.parse(localStorage.getItem("user")).userName;
@@ -36,7 +35,7 @@ const ClientDashBoard = (props) => {
     <div>
       <div className="offset-md-8 wlcmtxt mt-5">
         Welcome {username}
-        <img src={icon} className="icon"></img>
+        <img src={icon} className="icon" alt=""></img>
       </div>
       {/* <Router> */}
       <Route path="/client/apply" component={LoanApplication}></Route>

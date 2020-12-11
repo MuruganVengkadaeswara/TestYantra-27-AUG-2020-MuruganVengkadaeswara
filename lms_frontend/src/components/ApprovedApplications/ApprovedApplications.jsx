@@ -1,6 +1,6 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 const ApprovedApplications = (props) => {
   const [applns, setApplns] = useState([]);
 
@@ -55,8 +55,7 @@ const ApprovedApplications = (props) => {
         </Table>
       </div>
     );
-  }
-  else{
+  } else {
     return (
       <div
         className="col-md-6 offset-md-3 mt-5"

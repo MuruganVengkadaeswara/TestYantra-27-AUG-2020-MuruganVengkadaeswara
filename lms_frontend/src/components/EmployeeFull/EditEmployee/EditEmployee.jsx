@@ -79,14 +79,14 @@ const EditEmployee = (props) => {
         </thead>
         <tbody>
           {Object.keys(emp).map((key, index) => {
-            if (key == "employeeId") {
+            if (key === "employeeId") {
               return (
                 <tr>
                   <td>{key}</td>
                   <td>{emp[key]}</td>
                 </tr>
               );
-            } else if (key == "employeeStatus") {
+            } else if (key === "employeeStatus") {
               return (
                 <tr>
                   <td>{key}</td>
@@ -113,7 +113,7 @@ const EditEmployee = (props) => {
                   </td>
                 </tr>
               );
-            } else if (key == "department") {
+            } else if (key === "department") {
               return (
                 <tr>
                   <td>{key}</td>
