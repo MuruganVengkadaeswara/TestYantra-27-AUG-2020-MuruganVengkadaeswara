@@ -1,0 +1,15 @@
+package com.mv.lms.dto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import lombok.Data;
+
+@Data
+public class ResponseDTO {
+
+	private boolean error;
+
+	private ArrayList<Object> response;
+
+}
