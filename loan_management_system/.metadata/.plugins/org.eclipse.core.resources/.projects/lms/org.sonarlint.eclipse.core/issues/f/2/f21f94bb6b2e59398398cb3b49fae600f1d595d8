@@ -1,7 +1,0 @@
-
-^
-java:S1168L"+Return an empty collection instead of null.(¥¹ï8ì¥Ûä.HÈ%RMAJORZ
-CODE_SMELL
-›
-java:S1488X"cImmediately return this expression instead of assigning it to the temporary variable "paymentlist".(™“˜›ıÿÿÿÿ8íÍÖßä.Hı%RMINORZ
-CODE_SMELL

@@ -1,10 +1,0 @@
-
-u
-java:S1128"=Remove this unused import 'javax.persistence.SecondaryTable'.(Èãœæûÿÿÿÿ8Ú…„¶Û.HòRMINORZ
-CODE_SMELL
-v
-java:S1128"CRemove this unused import 'javax.persistence.PrimaryKeyJoinColumn'.(Ðó§í8Ú…„¶Û.HóRMINORZ
-CODE_SMELL
-j
-java:S1128"7Remove this unused import 'javax.persistence.OneToOne'.(Ø½ïâ8Ú…„¶Û.HôRMINORZ
-CODE_SMELL

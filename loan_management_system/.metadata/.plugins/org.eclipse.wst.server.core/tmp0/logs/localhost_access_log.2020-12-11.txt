@@ -1,7 +1,0 @@
-127.0.0.1 - - [11/Dec/2020:12:30:56 +0530] "GET / HTTP/1.1" 404 751
-127.0.0.1 - - [11/Dec/2020:12:31:11 +0530] "GET /lms/user/loantypes HTTP/1.1" 404 682
-127.0.0.1 - - [11/Dec/2020:12:31:14 +0530] "GET /lms/user/loantypes HTTP/1.1" 404 682
-127.0.0.1 - - [11/Dec/2020:12:31:41 +0530] "GET /lms/user/loantypes HTTP/1.1" 404 682
-127.0.0.1 - - [11/Dec/2020:12:31:55 +0530] "GET /lms/user/loantypes HTTP/1.1" 404 682
-127.0.0.1 - - [11/Dec/2020:12:31:55 +0530] "GET /favicon.ico HTTP/1.1" 404 762
-127.0.0.1 - - [11/Dec/2020:12:31:57 +0530] "GET /lms/user/loantypes HTTP/1.1" 404 682
