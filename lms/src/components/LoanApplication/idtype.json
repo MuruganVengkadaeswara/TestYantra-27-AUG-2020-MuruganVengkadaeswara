@@ -1,0 +1,19 @@
+[
+    {
+        "key":"ad",
+        "name":"Aadhar Card"
+    },
+    {
+        "key":"dl",
+        "name":"Driving License"
+    },
+    {
+        "key":"pp",
+        "name":"Passport"
+    },
+    {
+        "key":"vi",
+        "name":"Voter's ID"
+    }
+
+]

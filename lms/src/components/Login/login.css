@@ -1,0 +1,18 @@
+
+.iconset{
+    height: 30px;
+    width: 40px;
+}
+
+.card{
+    font-weight: bolder;
+    padding: 40px;
+    font-size: larger;
+    
+}
+
+.loginbody{
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 130px;
+   
+}

@@ -1,0 +1,118 @@
+.brandlogo {
+  height: 50px;
+  width: 50px;
+  /* padding: 10px; */
+  font-size: xx-large !important ;
+}
+
+.subt {
+  font-size: small;
+  font-style: italic;
+  color: #04471c !important;
+
+  font-family: "Courier New", Courier, monospace;
+}
+
+.maint {
+  font-size: 25pt;
+  color: #04471c !important;
+  /* margin-left: 20px; */
+  font-family: "Courier New", Courier, monospace;
+}
+
+.nbar {
+  background-color: #5fbb97;
+  color: #04471c !important;
+  position: sticky;
+  top: 0;
+}
+
+.loginbtn:hover {
+  color: #04471c !important;
+  background-color: #5fbb97 !important;
+}
+
+#brandlogo {
+  height: 80px;
+}
+
+.menu {
+  background: #5fbb97;
+  height: 100vh;
+  width: 300px;
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  transform: translateX(-50%);
+  z-index: 1;
+  border: 1px solid #04471c;
+}
+
+a {
+  text-decoration: none !important;
+  color: white;
+  display: block;
+  padding: 20px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.nli {
+  color: #04471c !important;
+  font-size: 20px;
+  border-bottom: 1px solid #04471c;
+  transition: all 0.25s ease;
+  animation: fadeInRight 0.25s ease forwards;
+  opacity: 0;
+  font-weight: bolder;
+  font-family: "Courier New", Courier, monospace;
+}
+.nli:hover {
+  opacity: 0.8;
+  transition: all 0.25s ease;
+  background: #f8f8ff;
+  cursor: pointer;
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.25s ease;
+  transform: translateX(0);
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+.menubtn {
+  background-color: violet;
+  /* margin-top: 100px; */
+}
+
+.iconimg {
+  height: 100px;
+  height: 70%;
+
+  width: 150px;
+  overflow: hidden;
+  transition-duration: 0.9s;
+  transition-property: transform;
+  border-radius: 180px;
+}
+
+/* .iconimg:hover{
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  } */

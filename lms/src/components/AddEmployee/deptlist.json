@@ -1,0 +1,18 @@
+[
+    {
+        "key":"101",
+        "name":"Management"
+    },
+    {
+        "key":"102",
+        "name":"HR"
+    },
+    {
+        "key":"103",
+        "name":"Finance"
+    },
+    {
+        "key":"104",
+        "name":"IT"
+    }
+]

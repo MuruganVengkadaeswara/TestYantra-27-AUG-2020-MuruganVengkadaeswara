@@ -1,0 +1,18 @@
+[
+    {
+        "key":"govt",
+        "name":"Government Employee"
+    },
+    {
+        "key":"prvtregd",
+        "name":"Private Registered Employee"
+    },
+    {
+        "key":"prvtunregd",
+        "name":"Private unregistered Employee"
+    },
+    {
+        "key":"pensn",
+        "name":"pensioner"
+    }
+]

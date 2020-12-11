@@ -1,0 +1,30 @@
+.wlcm
+{
+	font-family: 'Courier New', Courier, monospace;
+}
+
+.admindb{
+	display: flexbox;
+}
+
+.wlcmtxt{
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: bolder;
+	font-size: 22pt;
+	color: #04471C;
+	/* background-color: #5FBB97; */
+	width: fit-content;
+	border-radius: 10px;
+	padding: 10px;
+	border: 1px solid #04471C;
+}
+
+.wlcmtxt :hover{
+	background-color: #5FBB97;
+	color: rosybrown !important;
+}
+
+.icon{
+	height: 40px;
+	width: 40px;
+}
