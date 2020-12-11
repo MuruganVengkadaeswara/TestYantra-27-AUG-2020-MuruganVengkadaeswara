@@ -36,7 +36,6 @@ public class UserController {
 		ResponseDTO response = new ResponseDTO();
 		response.setResponse(service.authenticate(user.getUserEmail(), user.getPassword()));
 		session.invalidate();
-//		 req.getSession().setAttribute("response", "resp");
 		HttpSession newsession = req.getSession();
 		newsession.setAttribute("username", "1234");
 		return response;

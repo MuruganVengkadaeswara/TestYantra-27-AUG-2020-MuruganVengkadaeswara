@@ -10,12 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -71,10 +67,9 @@ public class Loan {
 	@JsonIgnore
 	@OneToMany(mappedBy = "loan")
 	private List<OverdueLoan> overdues;
-	
-	
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "loan")
 	private List<Payment> payment;
-	
+
 }

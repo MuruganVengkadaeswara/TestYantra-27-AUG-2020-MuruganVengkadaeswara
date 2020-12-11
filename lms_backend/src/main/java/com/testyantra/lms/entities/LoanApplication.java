@@ -13,12 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
-
-import org.hibernate.annotations.Cascade;
-import org.springframework.format.annotation.DateTimeFormat;
-
 
 import lombok.Data;
 
@@ -44,13 +38,13 @@ public class LoanApplication {
 
 	@NotNull
 	private String gender;
-	
+
 	private String email;
-	
-	@Column(name="loan_amount")
+
+	@Column(name = "loan_amount")
 	private double loanAmount;
-	
-	@Column(name="comp_name")
+
+	@Column(name = "comp_name")
 	private String compName;
 
 //	@Past
@@ -62,7 +56,7 @@ public class LoanApplication {
 
 	@Column(name = "address_2")
 	private String address2;
- 
+
 //	@Pattern(regexp = "/^[a-zA-Z ]*$/")
 	private String state;
 
@@ -95,8 +89,8 @@ public class LoanApplication {
 //	@Pattern(regexp = "[A-Z]{5}[0-9]{4}[A-Z]{1}")
 	@Column(name = "pan_no")
 	private String panNo;
-	
-	@Column(name="empl_type")
+
+	@Column(name = "empl_type")
 	private String emplType;
 
 //	@OneToOne

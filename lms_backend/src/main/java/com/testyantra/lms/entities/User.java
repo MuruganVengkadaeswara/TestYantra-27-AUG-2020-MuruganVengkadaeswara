@@ -2,18 +2,12 @@ package com.testyantra.lms.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Pattern;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -36,7 +30,7 @@ public class User {
 //	@Pattern(regexp = "\"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$\"\n")
 	@Column(name = "user_email", unique = true)
 	private String userEmail;
-	
+
 //	@Lob
 //	@Column(name="profile_photo",nullable = false,columnDefinition = "mediumblob")
 //	private byte[] image;
